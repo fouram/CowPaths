@@ -1,7 +1,7 @@
 name: CowPaths
 main: com.ryanmichela.cowpaths.plugin.CowPaths
-version: 2
-website: https://github.com/rmichela/CowPaths
+version: ${version}
+website: https://github.com/tips48/CowPaths
 author: Ryan Michela
 description: >
-             Tracks player statistics and provides a web-based report.
+             Simulate errosion, wear, and growth on your Minecraft maps.
