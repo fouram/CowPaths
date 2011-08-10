@@ -13,7 +13,7 @@
 //You should have received a copy of the GNU General Public License
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.ryanmichela.cowpaths.plugin;
+package com.tips48.cowpaths.plugin;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,10 +26,10 @@ import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.ryanmichela.cowpaths.api.CowPathsApi;
-import com.ryanmichela.cowpaths.controller.StepConfiguration;
-import com.ryanmichela.cowpaths.controller.StepController;
-import com.ryanmichela.cowpaths.controller.StepConfiguration.WearPattern;
+import com.tips48.cowpaths.api.CowPathsApi;
+import com.tips48.cowpaths.controller.StepConfiguration;
+import com.tips48.cowpaths.controller.StepController;
+import com.tips48.cowpaths.controller.StepConfiguration.WearPattern;
 
 public class CowPaths extends JavaPlugin {
 
@@ -72,7 +72,6 @@ public class CowPaths extends JavaPlugin {
 		}
 	}
 	
-	@Override
 	public void onEnable() {
 		if (!loadError) {
 			// Wire up event listeners
@@ -92,7 +91,6 @@ public class CowPaths extends JavaPlugin {
 		}
 	}
 
-	@Override
 	public void onDisable() {
 		if(!loadError) {
 			log.info("[Cow Paths] Flushing block data.");

@@ -13,30 +13,25 @@
 //You should have received a copy of the GNU General Public License
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.ryanmichela.cowpaths.plugin;
+package com.tips48.cowpaths.api;
 
-import org.bukkit.event.world.ChunkLoadEvent;
-import org.bukkit.event.world.ChunkUnloadEvent;
-import org.bukkit.event.world.WorldListener;
+import org.bukkit.block.Block;
 
-import com.ryanmichela.cowpaths.controller.StepController;
+import com.tips48.cowpaths.controller.StepController;
 
-public class StepWorldListener extends WorldListener {
-
+public class CowPathsApi {
+	
 	private StepController controller;
 	
-	public StepWorldListener(StepController controller) {
+	public CowPathsApi(StepController controller) {
 		this.controller = controller;
 	}
 	
-	@Override
-	public void onChunkLoad(ChunkLoadEvent event) {
-		controller.loadChunk(event.getChunk());
+	public int getTotalPlayerStepsOnBlock(Block block) {
+		return controller.getTotalSteps(block);
 	}
-
-	@Override
-	public void onChunkUnload(ChunkUnloadEvent event) {
-		controller.unloadChunk(event.getChunk());
+	
+	public int getStepsSinceLastErosion(Block block) {
+		return controller.getStepCount(block);
 	}
-
 }

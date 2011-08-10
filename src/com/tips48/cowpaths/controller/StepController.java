@@ -13,7 +13,7 @@
 //You should have received a copy of the GNU General Public License
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.ryanmichela.cowpaths.controller;
+package com.tips48.cowpaths.controller;
 
 import java.io.File;
 import java.util.HashMap;
@@ -26,9 +26,9 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.plugin.Plugin;
 
-import com.ryanmichela.cowpaths.controller.StepConfiguration.WearPattern;
-import com.ryanmichela.cowpaths.model.StepData;
-import com.ryanmichela.cowpaths.model.WorldStepData;
+import com.tips48.cowpaths.controller.StepConfiguration.WearPattern;
+import com.tips48.cowpaths.model.StepData;
+import com.tips48.cowpaths.model.WorldStepData;
 
 public class StepController {
 

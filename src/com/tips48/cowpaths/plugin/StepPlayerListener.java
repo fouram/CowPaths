@@ -13,7 +13,7 @@
 //You should have received a copy of the GNU General Public License
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.ryanmichela.cowpaths.plugin;
+package com.tips48.cowpaths.plugin;
 
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
@@ -21,7 +21,7 @@ import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-import com.ryanmichela.cowpaths.controller.StepController;
+import com.tips48.cowpaths.controller.StepController;
 
 public class StepPlayerListener extends PlayerListener {
 
