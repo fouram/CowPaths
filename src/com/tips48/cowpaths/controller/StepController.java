@@ -31,7 +31,7 @@ import org.bukkit.plugin.Plugin;
 import com.tips48.cowpaths.controller.StepConfiguration.WearPattern;
 import com.tips48.cowpaths.model.StepData;
 import com.tips48.cowpaths.model.WorldStepData;
- 
+
 public class StepController {
 
 	private StepConfiguration config;
