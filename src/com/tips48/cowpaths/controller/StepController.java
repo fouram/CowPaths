@@ -22,8 +22,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.bukkit.Chunk;
+import org.bukkit.Server;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.plugin.Plugin;
 
 import com.tips48.cowpaths.controller.StepConfiguration.WearPattern;
@@ -35,12 +37,15 @@ public class StepController {
 	private StepConfiguration config;
 	private File dataDir;
 	private Logger log;
+	private Server server;
 	
 	private Map<World, WorldStepData> worldStepDatas = new HashMap<World, WorldStepData>();
+	private Map<String, Block> playerLastBlockData = new HashMap<String, Block>();
 	
 	public StepController(Plugin plugin, StepConfiguration config) {
 		this.config = config;
 		this.log = plugin.getServer().getLogger();
+		this.server = plugin.getServer();
 		dataDir = plugin.getDataFolder();
 		if(!dataDir.exists()) dataDir.mkdir();
 	}
@@ -49,11 +54,13 @@ public class StepController {
 	 * Controls the process of stepping on a block
 	 * @param block
 	 */
-	public void stepOnBlock(Block block) {
+	public void stepOnBlock(String player, Block block) {
 		try {
 			// Locate the step data
 			WorldStepData wsd = getWsd(block.getWorld());
 			StepData sd = wsd.getStepData(block);
+			
+			playerLastBlockData.put(player, block);
 			
 			// Verify the block material is still the same
 			// Reset the step count if anything has changed
@@ -150,6 +157,20 @@ public class StepController {
 			return 0;
 		}
 	}
+	
+	/**
+	 * Returns the last known Location of the player. Locations are Math.floor()'d in order to prevent movement less than one block from causing steps to be counted. This was implemented as a workaround to a Bukkit bug where the PLAYER_MOVE event wasn't firing fast enough on some servers to be able to accurately compare the from() and to()
+	 * @author 4am
+	 * @param player
+	 * @return
+	 */
+	public Block getPlayerLastKnown(String player) {
+		if(!playerLastBlockData.containsKey(player)) {
+			playerLastBlockData.put(player, server.getPlayer(player).getLocation().getBlock().getRelative(BlockFace.DOWN));
+		}
+		return playerLastBlockData.get(player);
+	}
+	
 	
 	private WorldStepData getWsd(World world) {
 		if(!worldStepDatas.containsKey(world)) {

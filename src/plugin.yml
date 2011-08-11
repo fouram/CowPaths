@@ -1,5 +1,5 @@
 name: CowPaths
-main: com.ryanmichela.cowpaths.plugin.CowPaths
+main: com.tips48.cowpaths.plugin.CowPaths
 version: ${version}
 website: https://github.com/tips48/CowPaths
 author: Ryan Michela

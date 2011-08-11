@@ -1,4 +1,5 @@
 //Copyright (C) 2011  Ryan Michela
+//Copyright (C) 2011  4am
 //
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -15,7 +16,6 @@
 
 package com.tips48.cowpaths.plugin;
 
-import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -33,9 +33,9 @@ public class StepPlayerListener extends PlayerListener {
 	
 	@Override
 	public void onPlayerMove(PlayerMoveEvent event) {
-		if(!samePlace(event.getFrom(), event.getTo())) {
+		if(!controller.getPlayerLastKnown(event.getPlayer().getName()).equals(event.getTo().getBlock().getRelative(BlockFace.DOWN)))  {
 			// Get the block below the block the player's feet are in.
-			controller.stepOnBlock(event.getTo().getBlock().getRelative(BlockFace.DOWN));
+			controller.stepOnBlock(event.getPlayer().getName(), event.getTo().getBlock().getRelative(BlockFace.DOWN));
 		}
 	}
 
@@ -44,9 +44,9 @@ public class StepPlayerListener extends PlayerListener {
 		onPlayerMove((PlayerMoveEvent)event);
 	}
 
-	private boolean samePlace(Location l1, Location l2) {
+	/*private boolean samePlace(Location l1, Location l2) {
 		return (l1.getBlockX() == l2.getBlockX()) &&
 		       (l1.getBlockY() == l2.getBlockY()) &&
 		       (l1.getBlockZ() == l2.getBlockZ());
-	}
+	}*/
 }
