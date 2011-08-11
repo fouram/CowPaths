@@ -23,7 +23,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 
 import com.tips48.cowpaths.controller.StepController;
 
-public class StepPlayerListener extends PlayerListener {
+public class StepPlayerListener extends PlayerListener { 
 
 	private StepController controller;
 	
