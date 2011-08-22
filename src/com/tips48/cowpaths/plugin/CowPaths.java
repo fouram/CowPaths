@@ -30,6 +30,7 @@ import com.tips48.cowpaths.api.CowPathsApi;
 import com.tips48.cowpaths.controller.StepConfiguration;
 import com.tips48.cowpaths.controller.StepController;
 import com.tips48.cowpaths.controller.StepConfiguration.WearPattern;
+import com.tips48.cowpaths.plugin.StepWorldListener;
 
 public class CowPaths extends JavaPlugin {
 
@@ -72,6 +73,7 @@ public class CowPaths extends JavaPlugin {
 		}
 	}
 	
+	//@Override
 	public void onEnable() {
 		if (!loadError) {
 			// Wire up event listeners
@@ -91,6 +93,7 @@ public class CowPaths extends JavaPlugin {
 		}
 	}
 
+	//@Override
 	public void onDisable() {
 		if(!loadError) {
 			log.info("[Cow Paths] Flushing block data.");

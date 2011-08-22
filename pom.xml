@@ -1,10 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ryanmichela</groupId>
-  <artifactId>CowPaths</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>com.tips48</groupId>
+  <artifactId>cowpaths</artifactId>
+  <version>2.0.d1</version>
   <name>CowPaths</name>
   <description>Enables wear and tear on your Bukkit server!</description>
+  <url>https://github.com/tips48/CowPaths</url>
   <build>
   	<finalName>CowPaths</finalName>
   	<sourceDirectory>${basedir}/src</sourceDirectory>
@@ -40,13 +41,6 @@
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
       <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-    	<groupId>mysql</groupId>
-    	<artifactId>mysql-connector-java</artifactId>
-    	<version>5.1.17</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
     </dependency>
   </dependencies>
   <properties>

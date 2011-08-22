@@ -1,7 +1,7 @@
-name: CowPaths
-main: com.tips48.cowpaths.plugin.CowPaths
+name: ${name}
+main: ${groupId}.${artifactId}.plugin.${build.finalName}
 version: ${version}
-website: https://github.com/tips48/CowPaths
-author: Ryan Michela
+website: ${url}
+authors: [4am, tips48, Tster, Ryan Michela]
 description: >
-             Simulate errosion, wear, and growth on your Minecraft maps.
+             ${description}

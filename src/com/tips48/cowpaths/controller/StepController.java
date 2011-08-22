@@ -46,6 +46,7 @@ public class StepController {
 		this.config = config;
 		this.log = plugin.getServer().getLogger();
 		this.server = plugin.getServer();
+		
 		dataDir = plugin.getDataFolder();
 		if(!dataDir.exists()) dataDir.mkdir();
 	}
@@ -60,6 +61,10 @@ public class StepController {
 			WorldStepData wsd = getWsd(block.getWorld());
 			StepData sd = wsd.getStepData(block);
 			
+			/**
+			 * TODO: Implement this in the model instead of in the controller, but for testing purposes this works
+			 */
+			// Sets the player's last known block location to their current block
 			playerLastBlockData.put(player, block);
 			
 			// Verify the block material is still the same
@@ -159,18 +164,17 @@ public class StepController {
 	}
 	
 	/**
-	 * Returns the last known Location of the player. Locations are Math.floor()'d in order to prevent movement less than one block from causing steps to be counted. This was implemented as a workaround to a Bukkit bug where the PLAYER_MOVE event wasn't firing fast enough on some servers to be able to accurately compare the from() and to()
-	 * @author 4am
-	 * @param player
-	 * @return
-	 */
+	* Returns the last known Location of the player.  This was implemented as a workaround to a Bukkit bug where the PLAYER_MOVE event wasn't firing fast enough on some servers to be able to accurately compare the from() and to(). CraftBukkit RB 1060 may have fixed this issue.
+	* @author 4am
+	* @param player
+	* @return
+	*/
 	public Block getPlayerLastKnown(String player) {
 		if(!playerLastBlockData.containsKey(player)) {
 			playerLastBlockData.put(player, server.getPlayer(player).getLocation().getBlock().getRelative(BlockFace.DOWN));
 		}
 		return playerLastBlockData.get(player);
 	}
-	
 	
 	private WorldStepData getWsd(World world) {
 		if(!worldStepDatas.containsKey(world)) {
